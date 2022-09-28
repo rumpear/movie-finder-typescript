@@ -1,43 +1,10 @@
-import { checkProfilePhoto } from "../../utils";
-import { Image, List, Item } from "./CastList.styled";
+import { checkProfilePhoto } from '../../utils';
+import { Image, List, Item } from './CastList.styled';
+import { IProps } from './types';
 
 const CAST_LENGTH = 18;
 
-interface TCast {
-  cast: {
-    adult: boolean;
-    cast_id: number;
-    character: string;
-    credit_id: string;
-    gender: number;
-    id: number;
-    known_for_department: string;
-    name: string;
-    order: number;
-    original_name: string;
-    popularity: number;
-    profile_path: string;
-  }[];
-}
-
-// interface IProps {
-//   cast: {
-//     adult: boolean;
-//     cast_id: number;
-//     character: string;
-//     credit_id: string;
-//     gender: number;
-//     id: number;
-//     known_for_department: string;
-//     name: string;
-//     order: number;
-//     original_name: string;
-//     popularity: number;
-//     profile_path: string;
-//   };
-// }
-
-export const CastList = ({ cast }: TCast) => {
+export const CastList = ({ cast }: IProps) => {
   const slicedCast = cast?.slice(0, CAST_LENGTH);
 
   return (
