@@ -1,4 +1,4 @@
-import { NavWrapper, Link } from "./Navigation.styled";
+import { NavWrapper, Link } from './Navigation.styled';
 
 export const Navigation = () => {
   return (
