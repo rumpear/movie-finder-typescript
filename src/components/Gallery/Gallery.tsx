@@ -1,11 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
-import { ITrendingMoviesDataResults } from "../../interfaces";
-import { checkPoster } from "../../utils";
-import { List } from "./Gallery.styled";
-
-interface IProps {
-  movies: ITrendingMoviesDataResults[];
-}
+import { Link, useLocation } from 'react-router-dom';
+import { checkPoster } from '../../utils';
+import { IProps } from './types';
+import { List } from './Gallery.styled';
 
 export const Gallery = ({ movies }: IProps) => {
   const location = useLocation();
@@ -14,7 +10,7 @@ export const Gallery = ({ movies }: IProps) => {
     <List>
       {movies.map(({ original_title, id, poster_path, title }) => {
         const path =
-          location.pathname === "/movies" ? `${id}` : `/movies/${id}`;
+          location.pathname === '/movies' ? `${id}` : `/movies/${id}`;
 
         return (
           <li key={id}>
