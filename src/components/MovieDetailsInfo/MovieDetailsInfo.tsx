@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom";
-import { IMovieDetails } from "../../interfaces";
-import { checkPoster } from "../../utils";
-import { TableInfo } from "../";
+import { Outlet } from 'react-router-dom';
+import { checkPoster } from '../../utils';
+import { TableInfo } from '../';
+import { IProps } from './types';
 import {
   Wrapper,
   Link,
@@ -12,14 +12,9 @@ import {
   AboutSubtitle,
   AdditionalSubtitle,
   Overview,
-} from "./MovieDetailsInfo.styled";
-
-interface IProps {
-  movie: IMovieDetails;
-}
+} from './MovieDetailsInfo.styled';
 
 export const MovieDetailsInfo = ({ movie }: IProps) => {
-  // console.log(movie, "MovieDetailsInfo");
   const { poster_path, title, overview } = movie;
 
   return (
