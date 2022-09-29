@@ -1,25 +1,8 @@
-import { checkAvatarPath } from "../../utils";
-import { Image, List, Item, AuthorWrapper } from "./ReviewsList.styled";
+import { checkAvatarPath } from '../../utils';
+import { Image, List, Item, AuthorWrapper } from './ReviewsList.styled';
+import { IReviewsList } from './types';
 
-interface IReviews {
-  reviews: {
-    author: string;
-    author_details: {
-      name: string;
-      username: string;
-      avatar_path: string;
-      rating: number;
-    };
-    content: string;
-    created_at: string;
-    id: string;
-    updated_at: string;
-    url: string;
-  }[];
-}
-
-export const ReviewsList = ({ reviews }: IReviews) => {
-  console.log(reviews, "reviews");
+export const ReviewsList = ({ reviews }: IReviewsList) => {
   return (
     <>
       {reviews.length ? (
@@ -35,7 +18,10 @@ export const ReviewsList = ({ reviews }: IReviews) => {
                 <Item key={id}>
                   <p>{content}</p>
                   <AuthorWrapper>
-                    <Image src={checkAvatarPath(avatar_path)} alt={username} />
+                    <Image
+                      src={checkAvatarPath(avatar_path)}
+                      alt={username}
+                    />
                     <p>{author}</p>
                   </AuthorWrapper>
                 </Item>
