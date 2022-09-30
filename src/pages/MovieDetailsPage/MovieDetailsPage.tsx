@@ -1,27 +1,25 @@
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes, useParams } from 'react-router-dom';
 import {
   MovieDetailsInfo,
   Cast,
   Reviews,
   ErrorMessage,
-} from "../../components";
-import { GoBackButton, Loader } from "../../components/ui";
-import { useFetch } from "../../hooks";
-import { IMovieDetails } from "../../interfaces";
-import { fetchMovieById } from "../../services/movieApi";
+} from '../../components';
+import { GoBackButton, Loader } from '../../components/ui';
+import { useFetch } from '../../hooks';
+import { fetchMovieById } from '../../services/';
+import { IMovieDetails } from './types';
 
 export const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const movieUrl = `/movie/${movieId}` ?? "";
-
-  // if (!movieId) {
-  //   return;
-  // }
-
-  const { state: movie, loading, error } = useFetch<IMovieDetails>(movieUrl);
-
-  // console.log(movie, "---movie");
-  // console.log(movieId, "---movieId");
+  const {
+    state: movie,
+    loading,
+    error,
+  } = useFetch<IMovieDetails>(
+    () => fetchMovieById<IMovieDetails>(movieId!),
+    [movieId!]
+  );
 
   return (
     <>
