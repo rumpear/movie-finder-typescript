@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
-import { URLSearchParamsInit } from "react-router-dom";
-
-interface IProps {
-  onSearch: (query: URLSearchParamsInit) => void;
-  query: string | null;
-}
+import { useEffect, useState } from 'react';
+import { IProps, THandleInputChange, THandleSubmit } from './types';
 
 export const SearchForm = ({ onSearch, query }: IProps) => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setInput(e.target.value.trim());
+  const handleInputChange: THandleInputChange = e => {
+    const normalizedValue = e.target.value.trim();
+    setInput(normalizedValue);
+  };
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit: THandleSubmit = e => {
     e.preventDefault();
     onSearch({ query: input });
   };
