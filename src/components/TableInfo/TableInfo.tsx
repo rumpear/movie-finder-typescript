@@ -1,10 +1,12 @@
-import { IMovieDetails } from "../../interfaces";
-import { getGenres } from "../../utils";
-import { Table, Head, Data, Rating, RatingAccent } from "./TableInfo.styled";
-
-interface IProps {
-  movie: IMovieDetails;
-}
+import { getGenres } from '../../utils';
+import { IProps } from './types';
+import {
+  Table,
+  Head,
+  Data,
+  Rating,
+  RatingAccent,
+} from './TableInfo.styled';
 
 const TableInfo = ({ movie }: IProps) => {
   const {
@@ -15,15 +17,15 @@ const TableInfo = ({ movie }: IProps) => {
     release_date,
     genres,
   } = movie;
+  const genresShown = genres ? getGenres(genres) : 'No genres';
 
-  const genresShown = genres ? getGenres(genres) : "No genres";
   return (
     <Table>
       <tbody>
         <tr>
           <Head>Vote / Votes:</Head>
           <Data>
-            <Rating>{vote_average}</Rating> /{" "}
+            <Rating>{vote_average}</Rating> /{' '}
             <RatingAccent>{vote_count}</RatingAccent>
           </Data>
         </tr>
