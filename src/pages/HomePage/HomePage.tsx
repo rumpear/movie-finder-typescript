@@ -1,7 +1,7 @@
-import { useFetchTrendingMovies } from "../../hooks";
-import { ErrorMessage, Gallery } from "../../components";
-import { Loader } from "../../components/ui/";
-import { Title } from "./HomePage.styled";
+import { useFetchTrendingMovies } from '../../hooks';
+import { ErrorMessage, Gallery } from '../../components';
+import { Loader } from '../../components/ui/';
+import { Title } from './HomePage.styled';
 
 export const HomePage = () => {
   const { trendingMovies, isLoading, error } = useFetchTrendingMovies();
